@@ -1,9 +1,12 @@
 import './App.css'
+import Header from './components/Header'
+
+console.log('hellow world')
 
 function App() {
   return (
     <>
-      <h1>Haii</h1>
+      <Header/>
     </>
   )
 }
