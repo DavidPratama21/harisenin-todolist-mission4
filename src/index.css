@@ -2,5 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-urbanist:'Urbanist', 'sans-serif'
+  --font-urbanist:'Urbanist', 'sans-serif';
+
+  --color-primary: #0D47A1;
+  --color-secondary: #E3F2FD;
+  --color-done: #757575;
+  --color-low: #1C9675;
+  --color-medium: #B5A40D;
+  --color-high: #B72315;
 }
