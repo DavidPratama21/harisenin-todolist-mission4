@@ -2,7 +2,13 @@ import React from "react";
 import { Trash2, Square, SquareCheck } from "lucide-react";
 import Todo from "../components/Todo";
 
+import store from "../store/todo";
+
 const DoneTodo = () => {
+  const doneTodos = store((state) => state.doneTodoList);
+  const deleteDoneTodo = store((state) => state.deleteDoneTodo)
+  const clearDoneTodo = store((state) => state.clearAllDoneTodo)
+
   return (
     <div className="p-2 grid gap-3 w-full rounded-lg bg-secondary shadow-[0_1px_4px_rgba(13,71,161,.25)]">
       {/* Title & Pick done todo to delete */}
@@ -16,28 +22,22 @@ const DoneTodo = () => {
           <h3 className="font-bold">Done Todolist</h3>
         </div>
         {/* Delete BTN */}
-        <Trash2 color="#757575" />
+        <button onClick={clearDoneTodo}>
+          <Trash2 color="#757575" />
+        </button>
       </div>
       {/* Done Todolist */}
       <div className="grid gap-1 w-full text-sm">
-        <Todo
-          task="Study react.js"
-          priority={"High"}
-          dueDate={"25 Mei 2025"}
-          done={"done"}
-        />
-        <Todo
-          task="Ngepel kamar"
-          priority={"Medium"}
-          dueDate={"27 Mei 2025"}
-          done={"done"}
-        />
-        <Todo
-          task="Mancing"
-          priority={"Low"}
-          dueDate={"1 Januari 2027"}
-          done={"done"}
-        />
+        {doneTodos.map((todo, index) => (
+          <Todo
+            key={index}
+            todo={todo}
+            onDelete={() => deleteDoneTodo(index)}
+            onDone= {() => {}}
+          />
+        ))}
+        
+        
       </div>
     </div>
   );
