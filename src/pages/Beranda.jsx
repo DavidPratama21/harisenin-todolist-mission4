@@ -19,7 +19,7 @@ const Beranda = () => {
       {/* Container */}
       <div className="grid gap-3 w-full lg:gap-5">
         <div className="grid gap-3 lg:flex lg:gap-5">
-          <JumlahTodo />
+          {/* <JumlahTodo /> */}
           {/* <JumlahTodo jmlTodoList={todoList}/> */}
           <TambahTodo />
         </div>
